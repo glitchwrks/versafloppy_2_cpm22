@@ -23,3 +23,7 @@ By far, the easiest way to get a new system bootstrapped with CP/M is to have an
 The big change required for most systems is the customization of console I/O routines for your particular console hardware, and the appropriate sizing of the system to available memory. Basic images provided in this repository always include a 48K version unless it is completely unnecessary, so that ROM can be left paged in during the development process. Once you've gotten a stable system up and running, your CBIOS may be updated to switch ROM out and occupy the full amount of memory available.
 
 See `documentation\getstart.txt` for the original guide on getting this BIOS up and running on your hardware. It's correct enough to get started!
+
+### CP/M Customization Services
+
+We do provide customized CP/M images and disks for users' specific hardware. Please [contact us](https://services.glitchworks.net/ng/messages/new) with any interest in this service, do include some basic information about your hardware, if possible.
