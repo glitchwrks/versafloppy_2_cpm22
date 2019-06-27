@@ -1,5 +1,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;GWV2BHR8.ASM -- VersaFloppy II BIOS for North Star Horizon 
+;GWV2BIO8.ASM -- VersaFloppy II BIOS for SBC-100/200
+;
+;This BIOS is customized for SD Systems' SBC-100 or
+;SBC-200 (the difference is CPU speed). It is considered
+;the "reference implementation" for the VersaFloppy II.
+;Unlike SD Systems' releases of CP/M 2.2, this one does not
+;depend on code in ROM on the SBC-200. Uses the SBC's
+;serial console port.
 ;
 ;This build includes a 15ms step rate when using 8" disk 
 ;drives in order to remain compatible with older 8" drives.
@@ -1499,7 +1506,7 @@ CRTIS:				;NOT IMPLEMENTED
 ;post: return with 0 in A if no char available
 ;post: return with 0xFF in A if char available
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-TTYIS:	IN	03H		;Get TTY status
+TTYIS:	IN	7DH		;Get TTY status
 	ANI	02H		;TTY input status mask
 	RZ			;Return with 0 in A if no char available
 	MVI	A, 0FFH		
@@ -1524,7 +1531,7 @@ CRTIN:				;NOT IMPLEMENTED
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 TTYIN:	CALL	TTYIS		;Get TTY status
 	JRZ	TTYIN		;Wait until data is available
-	IN	02H		;Read data from TTY register
+	IN	7CH		;Read data from TTY register
 	ANI	07FH		;Strip parity bit
 	RET
 
@@ -1535,7 +1542,7 @@ TTYIN:	CALL	TTYIS		;Get TTY status
 ;post: return with 0 in A if not ready to transmit
 ;post: return with 0xFF in A if ready to transmit
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-TTYOS:	IN	03H		;Get TTY status
+TTYOS:	IN	7DH		;Get TTY status
 	ANI	01H		;TTY output status mask
 	RZ			;Return with 0 in A if not ready for a char
 	MVI	A,0FFH
@@ -1561,7 +1568,7 @@ TTYOUT:
 	CALL	TTYOS		;GET STATUS
 	JZ	TTYOUT		;WAIT UNTIL BUFFER EMPTY
 	MOV	A,C		;Incoming char in A
-	OUT	02H		;Output to TTY data register
+	OUT	7CH		;Output to TTY data register
 	RET
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
