@@ -102,6 +102,8 @@ BOOTUP:
 
 ; FUNCTION TO TURN OFF ANY ONBOARD RAM/ROM
 
+	LXI	SP, 80H	;Set up local stack, we're about to kill
+			;the monitor stack.
 	MVI	A,2	;SBC-200 RAM/ROM BIT
 	OUT	7FH	;TURN OFF ONBOARD RAM/ROM
 
