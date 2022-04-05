@@ -21,6 +21,8 @@ ImageDisk files are ready-to-run diskette images captures with Dave Dunfield's [
 
 As this customization includes `IOBYTE` support, a copy of Kermit-80 v4.11 customized for generic CP/M 2.2 is included in disk image(s).
 
+`PCGET` and `PCPUT` XMODEM transfer customizations are included in the provided disk images. Source can be found [on GitHub](https://github.com/glitchwrks/pcget_pcput/tree/master/smb).
+
 Building the 5.25" CBIOS
 ------------------------
 
