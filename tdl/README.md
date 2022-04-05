@@ -13,7 +13,7 @@ This directory contains the following files:
 | `BOOT5.MD`     | text      | Type-in boot routine for Zapple monitor       |
 | `GWV2BTD5.ASM` | ZASM      | CBIOS source for 5.25" minifloppy drives      |
 | `IOBYTE.MD`    | text      | Description of IOBYTE facilities              |
-| `TDLSMB5.IMD`  | ImageDisk | 5.25" DSDD 35 track disk image,ready-to-run   |
+| `TDLSMB5.IMD`  | ImageDisk | 48K 5.25" DSDD 35 track disk image            |
 
 ZASM files should be assembled with TDL's Z80 Assembler.
 
