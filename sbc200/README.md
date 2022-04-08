@@ -18,6 +18,7 @@ This directory contains the following files:
 | `BOOTROM5.ASM` | ZASM      | SBC-100/SBC-200 boot ROM source               |
 | `BOOTROM5.HEX` | Intel HEX | SBC-100/SBC-200 boot ROM HEX file             |
 | `BOOTROM5.BIN` | binary    | SBC-100/SBC-200 boot ROM binary               |
+| `V2LD2001.ASM` | ZASM      | On-disk bootloader with ROM switch-out        |
 
 ZASM files should be assembled with TDL's Z80 Assembler.
 
