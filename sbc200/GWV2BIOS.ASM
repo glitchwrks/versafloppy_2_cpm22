@@ -1,5 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;GWV2BIO8.ASM -- VersaFloppy II BIOS for SBC-100/200
+;GWV2BIOS.ASM -- VersaFloppy II BIOS for SBC-100/200
 ;
 ;This BIOS is customized for SD Systems' SBC-100 or
 ;SBC-200 (the difference is CPU speed). It is considered
