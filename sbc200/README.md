@@ -3,6 +3,8 @@ TDL SMB and TDL/CDL SMB-II Support
 
 This customization supports CP/M 2.2 on the SD Systems SBC-100 and SBC-200 boards with VersaFloppy II disk controller.
 
+**DO NOTE:** The SBC-100 and SBC-200 are very similar, but there is one very important difference w.r.t. CP/M: *the SBC-100 does not support ROM switch-out!* That means you won't be able to run the 64K image on the SBC-100.
+
 Files
 -----
 
@@ -29,9 +31,11 @@ ImageDisk files are ready-to-run diskette images captures with Dave Dunfield's [
 ROM Switch-Out
 --------------
 
-The SBC-100/SBC-200 allow for disabling the onboard ROM and scratchpad RAM. This is necessary if CP/M is to use all 64K of system memory. We've provided images with and without ROM switch-out -- images with a N do not have ROM switch-out, the others do.
+The SBC-200 allows for disabling the onboard ROM and scratchpad RAM. This is necessary if CP/M is to use all 64K of system memory. We've provided images with and without ROM switch-out -- images with a N do not have ROM switch-out, the others do.
 
-We recommend starting with a 48K image with no ROM switch-out. Once this image is successfully booting, try a 48K image *with* ROM switch-out to ensure the SBC is working properly -- we've encountered a SBC that was not able to switch ROM out.
+We recommend starting with a 48K image with no ROM switch-out. Once this image is successfully booting, if you have a SBC-200, try a 48K image *with* ROM switch-out to ensure the SBC is working properly -- we've encountered a SBC that was not able to switch ROM out.
+
+As noted above, *the SBC-100 does not have ROM switch-out* and can't run the 64K CP/M 2.2 image provided.
 
 Booting with SD Monitor
 -----------------------
