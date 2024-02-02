@@ -1,5 +1,5 @@
-TDL SMB and TDL/CDL SMB-II Support
-==================================
+SD Systems SBC-100 and SBC-200 Support
+======================================
 
 This customization supports CP/M 2.2 on the SD Systems SBC-100 and SBC-200 boards with VersaFloppy II disk controller.
 
@@ -56,4 +56,4 @@ Building the 5.25" CBIOS
 
 In addition to `GWV2BIO5.ASM` you will also need `V2LD2001.HEX` or `V2LOADR1.HEX` and `V2SASG5.HEX`.  The latter two files are in the parent directory. Follow the instructions in [the main README](/documentation/readme.txt) for assembling and constructing the CP/M self-sysgen image.
 
-Note that `V2LD2001.HEX` switches out the SBC-100/SBC-200 onboard ROM and scratchpad RAM. It also initialized the stack pointer to `0x0080`, as switching out the SBC's scratchpad will cause the monitor's stack to go away! Bruce Jones' original code did not initialize the stack pointer and would cause boot failures on systems with 62K or less of RAM.
+Note that `V2LD2001.HEX` switches out the SBC-200 onboard ROM and scratchpad RAM. It also initialized the stack pointer to `0x0080`, as switching out the SBC's scratchpad will cause the monitor's stack to go away! Bruce Jones' original code did not initialize the stack pointer and would cause boot failures on systems with 62K or less of RAM.
