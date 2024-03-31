@@ -632,7 +632,7 @@ GETSYS:
         CALL    MSGF    ;GET NUMBER OF TRACKS
         .BYTE   CR,LF
         .ASCII  \extended 40 track (E) or \
-        .ASCII  \standard 35 track (S) drive (E,S): \
+        .ASCIS  \standard 35 track (S) drive (E,S): \
         LXI     H,NEOK
         CALL    GETOK
         STA     NESAV
