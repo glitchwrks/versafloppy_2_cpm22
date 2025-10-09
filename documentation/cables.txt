@@ -1,0 +1,69 @@
+(extracted from getstart.txt)
+
+STANDARD PC TWISTED CABLE
+
+CONTROLLER                    DRIVE CONNECTORS
+   J2                    S.C.                T.C.
+
+<>	O----------------O 1 - 33 GND ALL ODD PINS
+
+>	O----------------O 2  REDUCE WRITE   2	REDUCE WRITE
+	O----------------O 4  NC ----------- 4	NC
+> NC  O----------------O 6  DS3 ---------  6	DS3
+<	O----------------O 8  INDEX -------  8	INDEX
+>	O----------------O 10 DS0 ---------  16	MOTOR
+>	O----------------O 12 DS1 ---------  14	DS2
+>	O----------------O 14 DS2 ---------  12	DS1
+>	O----------------O 16 MOTOR -------  10	DS0
+>	O----------------O 18 DIRECTION ---  18	DIRECTION
+>	O----------------O 20 STEP --------  20	STEP
+>	O----------------O 22 WRITE DATA --  22	WRITE DATA
+>	O----------------O 24 WRITE GATE --  24	WRITE GATE
+<	O----------------O 26 TRACK 0 -----  26	TRACK 0
+<	O----------------O 28 WRITE PROTECT- 28	WRITE PROTECT
+<	O----------------O 30 READ DATA ---- 30	READ DATA
+>	O----------------O 32 SIDE SEL ----- 32	SIDE SEL
+<	O----------------O 34 DISK CHANGE -- 34	DISK CHANGE       
+
+
+S.C. = STRAIGHT THRU CABLE SECTION
+T.C. = TWISTED CABLE SECTION
+
+
+A look at the schematics for the disk adapter in the IBM publication "AT Technical Manual" shows that pin 10 is actually connected to a second MOT EN 1 - (Motor Enable 1) circuit, and not to a DS0 line. Further, pin 14 on the controller is designated DS1, while pin 12 is designated DS2. While IBM designates pin 6 as DS3, it is not connected to any circuit on their controller. Thus, in order to support the use of all drives strapped as DS1, IBM designed a twisted cable, and implemented a non-standard FDC interface.
+MODIFIED PC CABLE FOR STANDARD PC HD DRIVES (EACH DRIVE SET TO DS1)
+
+ALLOWS S.C. SECTION TO BE "B:" DRIVE AND T.C. SECTION 
+TO BE "A:" DRIVE WHEN CONNECTED TO THE VERSAFLOPPY II
+
+CONTROLLER                  DRIVE CONNECTORS 
+    J2                  S.C.               T.C.
+
+<>	O----------------O 1 - 33 GND ALL ODD PINS
+
+>	O----------------O 2  REDUCE WRITE   2	REDUCE WRITE
+	O----------------O 4  NC ----------  4	NC
+>J1-32O----------------O 6  DS3 ---------  6	DS3
+<	O----------------O 8  INDEX -------  8	INDEX
+>	O----------------O 10 DS0-A       C- 16	MOTOR 
+>	O----------------O 12 DS1 ---------- 14	DS2
+>	O----------------O 14 DS2 -       B- 12	DS1
+>	O----------------O 16 MOTOR -D       10	DS0
+>	O----------------O 18 DIRECTION ---- 18	DIRECTION
+>	O----------------O 20 STEP --------- 20	STEP
+>	O----------------O 22 WRITE DATA --- 22	WRITE DATA
+>	O----------------O 24 WRITE GATE --- 24	WRITE GATE
+<	O----------------O 26 TRACK 0 ------ 26	TRACK 0
+<	O----------------O 28 WRITE PROTECT- 28	WRITE PROTECT
+<	O----------------O 30 READ DATA ---- 30	READ DATA
+>	O----------------O 32 SIDE SEL ----- 32	SIDE SEL
+<	O----------------O 34 DISK CHANGE -- 34	DISK CHANGE       
+
+
+
+
+Cut wire 10 at A & C, wire 14 at B and wire 16 at D. Strip ends as shown, then join A to B and C to D. See next page for detailed cable modification notes.
+
+How To Cut and Join The Cable
+
+Some PC cables have pairs of 3.5" and 5.25" connectors, newer ones usually have just 3.5" connectors, so I will refer to any connector section as "connector(s)". Look for the colored orientation stripe along one edge of the cable. This is the "Pin 1" flag. Examine the cable and you will note that the connector(s) at one end have a twisted section of cable running through them. This is the PC "A:" drive. The farther end is connected to the PC floppy controller header. In our case that will be J2 on the Versafloppy. It is easy to do all the modifications on the straight section of the inter-connector twist. With an Xacto, or similar knife, cut the webbing between wire 10 and wire 11. Next cut the webbing between wire 15 and wire 16. Now cut the webbing on both sides of wire 14. Make your cuts about  3" long if possible. Lift up wire 10 and cut at point A & C. Lift wire 14 and cut at point B. Lift wire 16 and cut at point D. Strip a small section of the insulation off the ends as shown at A, C, B and D. Now join section A to section B, and finally join section C to section D. Solder these two new connections if you can. Cover up the exposed wire with a small square of electrical tape, folded around the wire and adhering to it's own sticky side. The cable now supplies a DS0 signal to the DS1 line on the end floppy connector, and a Motor Enable signal to the correct pin as well.
